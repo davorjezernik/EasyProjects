@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+int main() {
+    cout << "Welcome to Rock-Paper-Scissors Game!\n";
+
+    while (true) {
+        cout << "\nEnter your choice (rock, paper, scissors, or quit to exit): ";
+        string playerChoice;
+        cin >> playerChoice;
+
+        if (playerChoice == "quit") {
+            cout << "Thank you for playing. Goodbye!\n";
+            break;
+        }
+
+        int computerChoice = rand() % 3; // 0 for rock, 1 for paper, 2 for scissors
+
+        string choices[] = {"rock", "paper", "scissors"};
+
+        cout << "Computer chose: " << choices[computerChoice] << endl;
+
+        if (playerChoice == choices[computerChoice]) {
+            cout << "It's a tie!\n";
+        } else if (
+            (playerChoice == "rock" && choices[computerChoice] == "scissors") ||
+            (playerChoice == "paper" && choices[computerChoice] == "rock") ||
+            (playerChoice == "scissors" && choices[computerChoice] == "paper")
+        ) {
+            cout << "You win!\n";
+        } else {
+            cout << "Computer wins!\n";
+        }
+    }
+
+    return 0;
+}
